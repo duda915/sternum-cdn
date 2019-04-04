@@ -1,6 +1,6 @@
 enum ResourceType {
   Image = "image",
-  Text = "text"
+  File = "file"
 }
 
 export default ResourceType;
