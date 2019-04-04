@@ -1,5 +1,5 @@
 import response from "supertest";
-import app from "./app";
+import app from "../src/app";
 
 describe("app", () => {
   it("GET / says hello world", async () => {
