@@ -1,6 +1,5 @@
-export function setup(test: Number): Number {
-  const x = "";
+export function setup(test: number): number {
   return test;
 }
 
-setup(12);
+console.log(setup(12));
