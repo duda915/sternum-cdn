@@ -2,7 +2,7 @@
   "name": "sternum-cdn",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "tsnd --respawn server.ts",
     "build": "tsc",
@@ -11,9 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "ts-loader": "^5.3.3",
     "ts-node-dev": "^1.0.0-pre.32",
     "tslint": "^5.15.0",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@types/express": "^4.16.1",
