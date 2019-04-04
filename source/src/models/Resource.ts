@@ -6,10 +6,14 @@ class Resource {
   private _resourceName: string;
   private _resource: Uint8Array;
 
-  constructor(resourceType: ResourceType, resource: Uint8Array) {
+  constructor(
+    resourceType: ResourceType,
+    resource: Uint8Array,
+    extension: string
+  ) {
     this._resourceType = resourceType;
     this._resource = resource;
-    this._resourceName = UUID.v4().toString();
+    this._resourceName = `${UUID.v4().toString()}.${extension}`;
   }
 
   get resourceType(): ResourceType {
