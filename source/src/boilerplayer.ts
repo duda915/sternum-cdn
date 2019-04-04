@@ -1,1 +1,1 @@
-export const one: number = 1;
+export const one: number = 5;
