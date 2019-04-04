@@ -1,3 +1,5 @@
 /source/node_modules
 /source/dist
 /source/build
+.vagrant/
+ubuntu*.log
