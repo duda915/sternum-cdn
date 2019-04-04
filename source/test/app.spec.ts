@@ -1,11 +1,17 @@
-import response from "supertest";
+import fs from "fs";
+import request from "supertest";
 import app from "../src/app";
+import { buildResourcePath, buildResourceURL } from "../src/filesystem/utils";
+import { createTestResource } from "./helper/resourcehelper";
 
-describe("app", () => {
-  it("GET / says hello world", async () => {
-    await response(app)
-      .get("/")
-      .expect(200)
-      .expect("hello world");
+describe("Static file serving", () => {
+  it("serves file from data directory", async () => {
+    const resource = createTestResource();
+    const path = buildResourcePath(resource);
+    fs.writeFileSync(path, resource.resource);
+
+    const req = await request(app)
+      .get(buildResourceURL(resource))
+      .expect(200);
   });
 });

@@ -1,9 +1,8 @@
 import express = require("express");
+import { dataDir } from "./filesystem/directorysetup";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+app.use(express.static(dataDir));
 
 export default app;

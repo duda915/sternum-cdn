@@ -1,25 +1,10 @@
-import { TextEncoder } from "util";
-import { dataDir } from "../../src/filesystem/directorysetup";
-import { checkIfPathExists, checkIfResourceExists } from "../../src/filesystem/utils";
-import Resource from "../../src/models/Resource";
-import ResourceType from "../../src/models/ResourceTypes";
+import { checkIfResourceExists } from "../../src/filesystem/utils";
 import { addStaticResource } from "../../src/services/StaticResourceService";
-
-describe("Directory Setup", () => {
-  it("should initialize data directories", () => {
-    const exists = checkIfPathExists(dataDir);
-    expect(exists).toBeTruthy();
-  });
-});
+import { createTestResource } from "../helper/resourcehelper";
 
 describe("Static Resource Service", () => {
-  it("should add static resource in user/sternum-cdn/text/", () => {
-    const textEncoder = new TextEncoder();
-    const resource = new Resource(
-      ResourceType.File,
-      textEncoder.encode("test")
-    );
-
+  it("should add static resource in user/sternum-cdn/file/", () => {
+    const resource = createTestResource();
     addStaticResource(resource);
     expect(checkIfResourceExists(resource)).toBeTruthy();
   });

@@ -16,3 +16,7 @@ export function checkIfPathExists(pathToCheck: string): boolean {
 export function buildResourcePath(resource: Resource): string {
   return path.join(dataDir, resource.resourceType, resource.resourceName);
 }
+
+export function buildResourceURL(resource: Resource): string {
+  return `/${resource.resourceType}/${resource.resourceName}`;
+}
