@@ -1,0 +1,13 @@
+version: "3.5"
+
+services: 
+  cdnservice:
+    container_name: cdn
+    image: mdud/sternum-cdn
+    ports:
+      - 3001:3000
+    volumes: 
+      - cdndata:/root/sternum-cdn/
+
+volumes:
+  cdndata:
