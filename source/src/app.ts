@@ -8,9 +8,22 @@ const upload = multer();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(upload.any());
+app.use(upload.single("resource"));
 
-app.use(express.static(dataDir));
+// resource.persistResource();
+app.use("/static", express.static(dataDir));
 app.post("/add", addStaticResource);
+
+app.use(
+  (
+    err: Error,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+  ) => {
+    console.error(err.stack);
+    res.status(400).send(err.message);
+  }
+);
 
 export default app;
