@@ -3,6 +3,11 @@ import path from "path";
 import UUID from "uuid";
 import { dataDir } from "../filesystem/directorysetup";
 
+interface IAccessibleResource {
+  resourceName: string;
+  resourceURL: string;
+}
+
 class Resource {
   private _resourceName: string;
   private _buffer: Uint8Array;
@@ -36,6 +41,13 @@ class Resource {
 
   public getTargetPhysicalPath(): string {
     return path.join(dataDir, this._resourceName);
+  }
+
+  public toAccessibleResource(): IAccessibleResource {
+    return {
+      resourceName: this._resourceName,
+      resourceURL: this._resourceURL
+    };
   }
 
   private buildResourceURL(): string {

@@ -13,7 +13,8 @@ export function addStaticResource(
       originalname,
       buffer
     );
-    res.send(resource);
+
+    res.send(resource.toAccessibleResource());
   } catch (err) {
     next(err);
   }
