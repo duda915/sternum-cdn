@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "tsnd --respawn src/server.ts",
+    "start": "ts-node-dev --respawn --poll --transpileOnly src/server.ts",
     "build": "webpack",
     "test": "jest"
   },
